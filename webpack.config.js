@@ -161,7 +161,7 @@ export default async function config ({
 
 					{ // Images.
 						from : './data/images',
-						to : 'assets'
+						to : 'images'
 					},
 
 					{ // CNAME.
