@@ -10,17 +10,20 @@ import WatchExternalFilesPlugin from 'webpack-watch-files-plugin';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function readYaml (file)
+function getPageData (file, settings)
 {
-	return async () => yaml.load(
-		await readFile(file, 'utf8')
-	);
+	return async () => ({
+		...yaml.load(
+			await readFile(file, 'utf8')
+		),
+		'__settings__' : settings
+	});
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 export default async function config ({
-	output = 'site'
+	output = 'site', baseUri = '/'
 } = {})
 {
 	return {
@@ -43,7 +46,8 @@ export default async function config ({
 			path : resolve(output),
 			library : 'lsp',
 			filename : 'js/[contenthash].js',
-			assetModuleFilename : 'assets/[contenthash][ext]'
+			assetModuleFilename : 'assets/[contenthash][ext]',
+			publicPath : baseUri
 		},
 
 		target :
@@ -139,7 +143,9 @@ export default async function config ({
 				filename : 'index.html',
 				minify : true,
 				template : './src/templates/home.hbs',
-				templateParameters : readYaml('data/home.yaml'),
+				templateParameters : getPageData('data/home.yaml', {
+					baseUri
+				}),
 				chunks : ['home']
 			}),
 
@@ -147,7 +153,9 @@ export default async function config ({
 				filename : '404.html',
 				minify : true,
 				template : './src/templates/404.hbs',
-				templateParameters : readYaml('data/404.yaml'),
+				templateParameters : getPageData('data/404.yaml', {
+					baseUri
+				}),
 				chunks : ['404']
 			}),
 
