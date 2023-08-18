@@ -1,0 +1,24 @@
+name: Luke S. Phillips
+title: Software Engineer
+characterizations:
+  - Problem Solver
+  - JavaScript Aficionado
+  - Board Game Enthusiast
+  - Animal Lover
+  - Lifelong Legend of Zelda Fan
+avatar: images/avatar.png
+introduction: |
+  Hey there, I'm not your average software engineer - I actually think JavaScript is a fantastic language and TypeScript ruins it! When I'm not tinkering with code, you'll catch me trying too hard playing board games, pampering my pets as if they were royalty, and exploring dungeons in the Legend of Zelda.
+links:
+  github: https://github.com/lsphillips
+  linkedin: https://linkedin.com/in/lukesphillips
+  cv: https://www.lsphillips.com/cv
+seo:
+  keywords:
+    - Luke Phillips
+    - United Kingdom
+    - London
+    - Software Engineer
+    - Web Developer
+    - Programmer
+  description: A full stack software engineer based in London who loves JavaScript and serverless technologies.

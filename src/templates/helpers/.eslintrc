@@ -1,0 +1,12 @@
+{
+	"extends" :
+	[
+		"protect-me-from-my-stupidity/and/from-writing-stupid-node-applications"
+	],
+
+	"env" :
+	{
+		"node" : true,
+		"browser" : false
+	}
+}

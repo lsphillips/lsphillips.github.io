@@ -1,0 +1,31 @@
+@import 'global/page.less';
+@import 'global/marquee.less';
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.not-found
+{
+	&__title
+	{
+		margin: 0;
+		font-size: 130%;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	&__byline
+	{
+		&:extend(.marquee all);
+
+		text-align: center;
+		font-size: 105%;
+		font-weight: bold;
+		margin: 5px 0 0;
+	}
+
+	&__explanation
+	{
+		margin: 20px 0 0;
+		line-height: 20px;
+	}
+}
