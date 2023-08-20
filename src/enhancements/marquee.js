@@ -35,8 +35,8 @@ export default class Marquee
 
 	constructor (element, phrases, {
 		keyPressDelay         = 125,
-	    keyPressDelayVariance = 50,
-	    phraseDelay           = 2500
+		keyPressDelayVariance = 50,
+		phraseDelay           = 2500
 	} = {})
 	{
 		this.#keyPressDelay         = keyPressDelay;
