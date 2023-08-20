@@ -1,6 +1,6 @@
 # The Personal Website for Luke S. Phillips
 
-[![Built using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/lsphillips/CV/actions)
+[![Built using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/lsphillips/lsphillips.github.io/actions)
 
 The source code for the personal website of Luke S. Phillips, which can be viewed here: www.lsphillips.com.
 
