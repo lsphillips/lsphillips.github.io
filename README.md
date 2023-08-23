@@ -1,18 +1,29 @@
 # The Personal Website for Luke S. Phillips
 
-[![Built and deployed using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/build-and-deploy.yml/badge.svg?branch=main)](https://github.com/lsphillips/lsphillips.github.io/actions)
+[![Built & deployed using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/build-and-deploy.yml/badge.svg?branch=main)](https://github.com/lsphillips/lsphillips.github.io/actions)
 
 The source code for the personal website of Luke S. Phillips, which can be viewed here: www.lsphillips.com.
 
+## Development
+
+This project is split into two parts:
+
+- **The website source**\
+  Contained in the `src` directory. This is where the design and functionality is defined.
+- **The website data**\
+  Contained in the `data` directory. This is where the content is defined.
+
+**Please Note:** Node.js is required because NPM scripts are used to facilitate the build process.
+
 ## Building
 
-To build a deployable site artifact:
+To build a deployable artifact:
 
 ```
 npm run build
 ```
 
-This will create a `site` directory containing the site.
+This will create a `site` directory containing the compiled HTML, CSS and JavaScript for the website.
 
 ### Running locally
 
@@ -26,9 +37,7 @@ This will perform a build in memory and serve it using a local web server on por
 
 ## Deployment
 
-The site is hosted through GitHub Pages. The deployment is faciliated by the [Build](.github/workflows/build.yml) GitHub Action Workflow, where it will perform a build and push the resulting artifact to the `gh-pages` branch of this repository.
-
-The `gh-pages` branch contains a pre-configured `CNAME` file that will never be touched by the deployment process.
+The site is hosted through GitHub Pages. The deployment is faciliated by the [Build & Deploy](.github/workflows/build-and-deploy.yml) GitHub Action Workflow, where it will perform a build and deploy the resulting artifact GitHub Pages.
 
 ### DNS
 
