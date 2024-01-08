@@ -4,7 +4,7 @@ excuses:
   - It worked on my machine...
   - Maybe you typed the wrong URL?
   - No errors in the logs
-  - This is definately not a bug!
+  - This is definitely not a bug!
   - Oh! I might of moved that...
 explanation: |
   It seems that you are looking for something, but that something doesn't exist! Maybe it was something related to TypeScript? You won't find that kind of stuff here!
