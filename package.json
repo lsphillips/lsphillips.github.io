@@ -27,7 +27,7 @@
         "less" : "4.2.0",
         "js-yaml" : "4.1.0",
         "core-js" : "3.37.1",
-        "@babel/core" : "7.24.5",
+        "@babel/core" : "7.24.6",
         "@babel/preset-env" : "7.24.6",
         "eslint" : "8.57.0",
 		"eslint-plugin-import" : "2.29.1",
