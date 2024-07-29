@@ -28,7 +28,7 @@
         "js-yaml" : "4.1.0",
         "core-js" : "3.37.1",
         "@babel/core" : "7.24.9",
-        "@babel/preset-env" : "7.24.8",
+        "@babel/preset-env" : "7.25.0",
         "eslint" : "8.57.0",
 		"eslint-plugin-import" : "2.29.1",
 		"eslint-plugin-promise" : "6.6.0",
