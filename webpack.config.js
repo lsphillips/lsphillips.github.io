@@ -1,6 +1,6 @@
 import { resolve }              from 'path';
 import { readFile }             from 'fs/promises';
-import yaml                     from 'js-yaml';
+import * as yaml                from 'js-yaml';
 import CssMinimizerPlugin       from 'css-minimizer-webpack-plugin';
 import MiniCssExtractPlugin     from 'mini-css-extract-plugin';
 import TerserPlugin             from 'terser-webpack-plugin';
