@@ -24,7 +24,7 @@
         "less-loader" : "12.2.0",
         "babel-loader" : "9.2.1",
         "handlebars-loader" : "1.7.3",
-        "less" : "4.2.1",
+        "less" : "4.2.2",
         "js-yaml" : "4.1.0",
         "core-js" : "3.40.0",
         "@babel/core" : "7.26.0",
