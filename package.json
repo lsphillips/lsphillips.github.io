@@ -27,20 +27,20 @@
         "less" : "4.2.2",
         "js-yaml" : "4.1.0",
         "core-js" : "3.40.0",
-        "@babel/core" : "7.26.7",
-        "@babel/preset-env" : "7.26.7",
-        "eslint" : "8.57.1",
+        "@babel/core" : "7.26.8",
+        "@babel/preset-env" : "7.26.8",
+        "eslint" : "9.20.0",
 		"eslint-plugin-import" : "2.31.0",
-		"eslint-plugin-promise" : "6.6.0",
-        "eslint-plugin-node" : "11.1.0",
-        "@stylistic/eslint-plugin-js" : "1.8.1",
-		"eslint-config-protect-me-from-my-stupidity" : "10.1.1"
+		"eslint-plugin-promise" : "7.2.1",
+        "eslint-plugin-n" : "17.15.1",
+        "@stylistic/eslint-plugin-js" : "3.1.0",
+		"eslint-config-protect-me-from-my-stupidity" : "13.0.0"
 	},
 
 	"scripts" :
 	{
 		"build" : "webpack",
-        "test" : "eslint \"**/*.js\" --ignore-path .gitignore",
+        "test" : "eslint \"**/*.js\"",
         "start" : "webpack serve --compress --port 1992 --history-api-fallback --mode development --devtool source-map"
 	},
 
