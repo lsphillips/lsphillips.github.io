@@ -174,6 +174,11 @@ export default async function config ({
 
 					{ // CNAME.
 						from : 'CNAME'
+					},
+
+					{ // "Well Known".
+						from : './data/.well-known',
+						to : '.well-known'
 					}
 				]
 			}),
