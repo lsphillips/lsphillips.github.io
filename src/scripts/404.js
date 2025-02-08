@@ -1,8 +1,8 @@
-import './styles/404.less';
+import '../styles/404.less';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-import Marquee from './enhancements/marquee.js';
+import Marquee from './marquee.js';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

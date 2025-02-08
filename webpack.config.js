@@ -1,5 +1,5 @@
-import { resolve }              from 'path';
-import { readFile }             from 'fs/promises';
+import { resolve }              from 'node:path';
+import { readFile }             from 'node:fs/promises';
 import * as yaml                from 'js-yaml';
 import CssMinimizerPlugin       from 'css-minimizer-webpack-plugin';
 import MiniCssExtractPlugin     from 'mini-css-extract-plugin';
@@ -33,11 +33,11 @@ export default async function config ({
 		entry :
 		{
 			'home' : [
-				'./src/home.js'
+				'./src/scripts/home.js'
 			],
 
 			'404' : [
-				'./src/404.js'
+				'./src/scripts/404.js'
 			]
 		},
 
@@ -172,13 +172,13 @@ export default async function config ({
 						to : 'images'
 					},
 
-					{ // CNAME.
-						from : 'CNAME'
+					{ // ALTTPR Config.
+						from : './data/files/alttpr.json',
+						to : '.well-known'
 					},
 
-					{ // "Well Known".
-						from : './data/.well-known',
-						to : '.well-known'
+					{ // CNAME.
+						from : 'CNAME'
 					}
 				]
 			}),
