@@ -16,7 +16,7 @@
         "webpack-dev-server" : "5.2.0",
         "webpack-watch-files-plugin" : "1.2.1",
         "html-webpack-plugin" : "5.6.3",
-        "css-minimizer-webpack-plugin" : "7.0.0",
+        "css-minimizer-webpack-plugin" : "7.0.2",
         "mini-css-extract-plugin" : "2.9.2",
         "copy-webpack-plugin" : "13.0.0",
         "terser-webpack-plugin" : "5.3.14",
