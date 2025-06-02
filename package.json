@@ -29,7 +29,7 @@
         "core-js" : "3.42.0",
         "@babel/core" : "7.27.1",
         "@babel/preset-env" : "7.27.2",
-        "eslint" : "9.27.0",
+        "eslint" : "9.28.0",
         "eslint-plugin-n" : "17.18.0",
 		"eslint-config-protect-me-from-my-stupidity" : "15.0.0"
 	},
