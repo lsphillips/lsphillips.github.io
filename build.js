@@ -20,7 +20,13 @@ import {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const outdir = 'website', datadir = 'data';
+const outdir = 'website', datadir = 'data', paths = {
+	base     : '/',
+	images   : 'images',
+	js       : 'scripts',
+	css      : 'styles',
+	favicons : 'favicons'
+};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -29,7 +35,7 @@ function isDeveloping ()
 	return process.argv[2]?.toLowerCase() === 'develop';
 }
 
-function observe (paths, handler)
+function observe (targets, handler)
 {
 	let working = false,
 		queuing = false;
@@ -66,9 +72,9 @@ function observe (paths, handler)
 		}
 	}
 
-	for (const path of paths)
+	for (const target of targets)
 	{
-		watch(path, { recursive : true }, work);
+		watch(target, { recursive : true }, work);
 	}
 }
 
@@ -105,11 +111,17 @@ async function renderPages ()
 					renderPages
 				} from './src/page-renderer.js';
 
-				await renderPages(workerData.outdir, workerData.pages, {
-					timestamp : Date.now()
+				const {
+					outdir,
+					pages,
+					paths
+				} = workerData;
+
+				await renderPages(outdir, pages, {
+					paths, timestamp : Date.now()
 				});
 			`, {
-				eval : true, workerData : { outdir, pages }
+				eval : true, workerData : { outdir, pages, paths }
 			});
 
 			worker.on('error', reject);

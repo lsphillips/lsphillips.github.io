@@ -6,14 +6,13 @@ import {
 	writeFile
 } from 'node:fs/promises';
 import nano from 'htmlnano';
+import {
+	createUrlBuilder
+} from './url-builder.js';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-async function renderPage ({
-	name,
-	data,
-	timestamp
-})
+async function renderPage (name, data, urls)
 {
 	const {
 		render
@@ -25,9 +24,7 @@ async function renderPage ({
 	}
 
 	const page = await nano.process(
-		render({
-			...data, timestamp
-		}),
+		render(data, urls),
 		{
 			collapseAttributeWhitespace : true,
 			collapseWhitespace          : 'aggressive',
@@ -59,6 +56,7 @@ async function renderPage ({
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 export async function renderPages (outdir, pages, {
+	paths,
 	timestamp
 })
 {
@@ -67,12 +65,12 @@ export async function renderPages (outdir, pages, {
 		recursive : true
 	});
 
-	for (const page of pages)
-	{
-		const html = await renderPage({
-			...page, timestamp
-		});
+	const urls = createUrlBuilder(paths, timestamp);
 
-		await writeFile(join(outdir, `${page.name}.html`), html, 'utf8');
+	for (const { name, data } of pages)
+	{
+		const html = await renderPage(name, data, urls);
+
+		await writeFile(join(outdir, `${name}.html`), html, 'utf8');
 	}
 }

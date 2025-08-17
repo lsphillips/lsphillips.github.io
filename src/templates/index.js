@@ -5,10 +5,16 @@ export function render ({
 	avatar,
 	introduction,
 	links,
-	seo,
-	timestamp
+	seo
+}, {
+	script,
+	stylesheet,
+	favicon,
+	image
 })
 {
+	const keywords = seo.keywords.join(',');
+
 	return `<!DOCTYPE html>
 
 	<html>
@@ -23,18 +29,18 @@ export function render ({
 
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-			<link rel="icon" href="/favicons/32x32.png?${ timestamp }"   sizes="32x32"   />
-			<link rel="icon" href="/favicons/128x128.png?${ timestamp }" sizes="128x128" />
-			<link rel="icon" href="/favicons/192x192.png?${ timestamp }" sizes="192x192" />
-			<link rel="icon" href="/favicons/512x512.png?${ timestamp }" sizes="512x512" />
+			<link rel="icon" href="${ favicon('32x32.png') }" sizes="32x32" />
+			<link rel="icon" href="${ favicon('128x128.png') }" sizes="128x128" />
+			<link rel="icon" href="${ favicon('192x192.png') }" sizes="192x192" />
+			<link rel="icon" href="${ favicon('512x512.png') }" sizes="512x512" />
 
-			<link rel="apple-touch-icon" href="/favicons/180x180.png?${ timestamp }" />
+			<link rel="apple-touch-icon" href="${ favicon('180x180.png') }" />
 
 			<meta name="description" content="${ seo.description }" />
 
-			<meta name="keywords" content="${ seo.keywords.join(',') }" />
+			<meta name="keywords" content="${ keywords }" />
 
-			<link href="/styles/index.css?${ timestamp }" rel="stylesheet" />
+			<link href="${ stylesheet('index.css') }" rel="stylesheet" />
 
 		</head>
 
@@ -44,7 +50,7 @@ export function render ({
 
 				<div class="profile">
 					<header class="profile__header">
-						<img class="profile__avatar" src="${ avatar }" alt="" />
+						<img class="profile__avatar" src="${ image(avatar) }" alt="" />
 						<h1 class="profile__name">
 							${ name }
 						</h1>
@@ -98,7 +104,7 @@ export function render ({
 
 			</script>
 
-			<script type="text/javascript" src="/scripts/index.js?${timestamp}"></script>
+			<script type="text/javascript" src="${ script('index.js') }"></script>
 
 		</body>
 

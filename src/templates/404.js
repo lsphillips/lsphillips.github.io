@@ -2,8 +2,11 @@ export function render ({
 	title,
 	byline,
 	excuses,
-	explanation,
-	timestamp
+	explanation
+}, {
+	script,
+	stylesheet,
+	favicon
 })
 {
 	return `<!DOCTYPE html>
@@ -20,14 +23,14 @@ export function render ({
 
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-			<link rel="icon" href="/favicons/32x32.png?${ timestamp }"   sizes="32x32"   />
-			<link rel="icon" href="/favicons/128x128.png?${ timestamp }" sizes="128x128" />
-			<link rel="icon" href="/favicons/192x192.png?${ timestamp }" sizes="192x192" />
-			<link rel="icon" href="/favicons/512x512.png?${ timestamp }" sizes="512x512" />
+			<link rel="icon" href="${ favicon('32x32.png') }" sizes="32x32" />
+			<link rel="icon" href="${ favicon('128x128.png') }" sizes="128x128" />
+			<link rel="icon" href="${ favicon('192x192.png') }" sizes="192x192" />
+			<link rel="icon" href="${ favicon('512x512.png') }" sizes="512x512" />
 
-			<link rel="apple-touch-icon" href="/favicons/180x180.png?${ timestamp }" />
+			<link rel="apple-touch-icon" href="${ favicon('180x180.png') }" />
 
-			<link href="/styles/404.css?${ timestamp }" rel="stylesheet" />
+			<link href="${ stylesheet('404.css') }" rel="stylesheet" />
 
 		</head>
 
@@ -62,7 +65,7 @@ export function render ({
 
 			</script>
 
-			<script type="text/javascript" src="/scripts/404.js?${ timestamp }"></script>
+			<script type="text/javascript" src="${ script('404.js') }"></script>
 
 		</body>
 
