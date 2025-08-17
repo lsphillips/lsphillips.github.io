@@ -3,8 +3,8 @@ import { marquee } from './marquee.js';
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 export function enhance ({
-	excuses
+	characterizations
 })
 {
-	marquee(document.querySelector('.not-found__byline'), excuses);
+	marquee(document.querySelector('.profile__title'), characterizations);
 }

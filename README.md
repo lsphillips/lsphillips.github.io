@@ -23,7 +23,7 @@ To build a deployable artifact:
 npm run build
 ```
 
-This will create a `site` directory containing the compiled HTML, CSS and JavaScript for the website.
+This will create a `website` directory containing the compiled HTML, CSS and JavaScript for the website.
 
 ### Running locally
 

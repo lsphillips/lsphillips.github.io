@@ -11,34 +11,20 @@
 
 	"devDependencies" :
 	{
-        "webpack" : "5.101.0",
-        "webpack-cli" : "6.0.1",
-        "webpack-dev-server" : "5.2.2",
-        "webpack-watch-files-plugin" : "1.2.1",
-        "html-webpack-plugin" : "5.6.3",
-        "css-minimizer-webpack-plugin" : "7.0.2",
-        "mini-css-extract-plugin" : "2.9.4",
-        "copy-webpack-plugin" : "13.0.0",
-        "terser-webpack-plugin" : "5.3.14",
-        "css-loader" : "7.1.2",
-        "less-loader" : "12.3.0",
-        "babel-loader" : "10.0.0",
-        "handlebars-loader" : "1.7.3",
-        "less" : "4.4.0",
         "js-yaml" : "4.1.0",
-        "core-js" : "3.44.0",
-        "@babel/core" : "7.28.0",
-        "@babel/preset-env" : "7.28.0",
-        "eslint" : "9.31.0",
+        "fast-xml-parser" : "5.2.5",
+        "htmlnano" : "2.1.2",
+        "esbuild" : "0.25.9",
+        "eslint" : "9.33.0",
         "eslint-plugin-n" : "17.21.3",
-		"eslint-config-protect-me-from-my-stupidity" : "15.0.0"
+        "eslint-config-protect-me-from-my-stupidity" : "15.0.0"
 	},
 
 	"scripts" :
 	{
-		"build" : "webpack",
-        "test" : "eslint \"**/*.js\"",
-        "start" : "webpack serve --compress --port 1992 --history-api-fallback --mode development --devtool source-map"
+		"lint" : "eslint \"**/*.js\"",
+		"build" : "node build.js",
+        "start" : "node build.js develop"
 	},
 
 	"repository" :

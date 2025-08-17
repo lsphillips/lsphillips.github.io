@@ -21,104 +21,74 @@ function getTextNode (element)
 	return null;
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-export default class Marquee
+function *keyPressSpacer (keyPressDelay, keyPressDelayVariance)
 {
-	#node                  = null;
-	#phrase                = 0;
-	#phrases               = [];
-	#keyPressDelay         = 0;
-	#keyPressDelayVariance = 0;
-	#phraseDelay           = 0;
-	#running               = false;
-
-	constructor (element, phrases, {
-		keyPressDelay         = 125,
-		keyPressDelayVariance = 50,
-		phraseDelay           = 2500
-	} = {})
+	while (true)
 	{
-		this.#keyPressDelay         = keyPressDelay;
-		this.#keyPressDelayVariance = keyPressDelayVariance;
-		this.#phraseDelay           = phraseDelay;
-		this.#phrases               = phrases;
-		this.#node                  = getTextNode(element);
-
-		if (this.#node)
-		{
-			this.#phrases.push(this.#node.nodeValue);
-		}
-		else
-		{
-			this.#node = element.appendChild(
-				document.createTextNode('')
-			);
-		}
-	}
-
-	async start ()
-	{
-		this.#running = true;
-
-		while (this.#running)
-		{
-			// Wait.
-			await wait(this.#phraseDelay);
-
-			// Clear.
-			await this.#clear();
-
-			// Type phrase.
-			await this.#print(
-				this.#phrases[this.#phrase]
-			);
-
-			this.#phrase = (this.#phrase === this.#phrases.length - 1) ? 0 : this.#phrase + 1;
-		}
-	}
-
-	pause ()
-	{
-		this.#running = false;
-	}
-
-	#getKeyDelay ()
-	{
-		return Math.floor(
-			Math.random() * ((this.#keyPressDelayVariance * 2) + (this.#keyPressDelay - this.#keyPressDelayVariance))
+		yield Math.floor(
+			Math.random() * ((keyPressDelayVariance * 2) + (keyPressDelay - keyPressDelayVariance))
 		);
 	}
+}
 
-	async #print (phrase)
+async function print (node, phrase, spacer)
+{
+	for (let i = 0, l = phrase.length; i < l; ++i)
 	{
-		for (let i = 0, l = phrase.length; i < l; ++i)
-		{
-			// Wait.
-			await wait(
-				this.#getKeyDelay()
-			);
+		// Wait.
+		await wait(spacer.next().value);
 
-			// Print character.
-			this.#node.nodeValue += phrase[i];
-		}
+		// Print character.
+		node.nodeValue += phrase[i];
 	}
+}
 
-	async #clear ()
+async function clear (node, spacer)
+{
+	let value;
+
+	while (
+		value = node.nodeValue.trim()
+	)
 	{
-		let value;
+		// Remove character.
+		node.nodeValue = value.substring(0, value.length - 1);
 
-		while (
-			value = this.#node.nodeValue.trim()
-		)
-		{
-			// Remove character.
-			this.#node.nodeValue = value.substring(0, value.length - 1);
+		// Wait.
+		await wait(spacer.next().value);
+	}
+}
 
-			// Wait.
-			await wait(
-				this.#getKeyDelay()
-			);
-		}
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+export async function marquee (element, values, {
+	keyPressDelay         = 125,
+	keyPressDelayVariance = 50,
+	phraseDelay           = 2500
+} = {})
+{
+	const node = getTextNode(element);
+
+	const phrases = [
+		...values, node.nodeValue
+	];
+
+	const spacer = keyPressSpacer(keyPressDelay, keyPressDelayVariance);
+
+	let phrase = 0;
+
+	while (true)
+	{
+		// Wait.
+		await wait(phraseDelay);
+
+		// Clear.
+		await clear(node, spacer);
+
+		// Type phrase.
+		await print(node, phrases[phrase], spacer);
+
+		// Calculate next phrase.
+		phrase = (phrase === phrases.length - 1) ? 0 : phrase + 1;
 	}
 }
