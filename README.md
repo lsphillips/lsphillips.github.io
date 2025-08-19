@@ -12,7 +12,7 @@ If a page requires an image, then the image file should be put in the [data/imag
 
 ## Development
 
-> [!INFO]
+> [!NOTE]
 > You will need [Node.js](https://nodejs.org/) v24 (or higher) installed.
 
 ### Building
