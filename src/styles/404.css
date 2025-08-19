@@ -1,0 +1,31 @@
+@import 'page.css';
+@import 'marquee.css';
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.not-found
+{
+	/* Here to remind that it exists. */
+}
+
+.not-found__title
+{
+	margin: 0;
+	font-size: 130%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.not-found__byline
+{
+	text-align: center;
+	font-size: 105%;
+	font-weight: bold;
+	margin: 5px 0 0;
+}
+
+.not-found__explanation
+{
+	margin: 20px 0 0;
+	line-height: 20px;
+}

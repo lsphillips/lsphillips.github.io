@@ -2,42 +2,51 @@
 
 [![Built & deployed using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/build-and-deploy.yml/badge.svg?branch=main)](https://github.com/lsphillips/lsphillips.github.io/actions)
 
-The source code for the personal website of Luke S. Phillips, which can be viewed here: www.lsphillips.com.
+The source code for the personal website of Luke S. Phillips.
+
+## Website Data
+
+The website is generated from the data found in the [data](data) directory. The data takes the form of YAML files (using the `.yaml` file extension); each data file represents the data for a single page that will be rendered by a corresponding [template](src/templates) of the same name. The exception to this rule is that `data/home.yaml` will be rendered by the `src/templates/index.js` template.
+
+If a page requires an image, then the image file should be put in the [data/images](data/images) directory. The image paths in the data files should be relative to that directory, for example if the image is at `data/images/avatar.png` then the path should be just `avatar.png`.
 
 ## Development
 
-This project is split into two parts:
+> [!INFO]
+> You will need [Node.js](https://nodejs.org/) v24 (or higher) installed.
 
-- **The website source**\
-  Contained in the `src` directory. This is where the design and functionality is defined.
-- **The website data**\
-  Contained in the `data` directory. This is where the content is defined.
+### Building
 
-**Please Note:** Node.js is required because NPM scripts are used to facilitate the build process.
+To build a deployable bundle in the `website` directory, run this command:
 
-## Building
-
-To build a deployable artifact:
-
-```
+``` bash
 npm run build
 ```
 
-This will create a `site` directory containing the compiled HTML, CSS and JavaScript for the website.
-
 ### Running locally
 
-To setup a seamless development environment:
+To run the website on a local development server running on port `1992`, run this command:
 
-```
+``` bash
 npm run start
 ```
 
-This will perform a build in memory and serve it using a local web server on port `1992`. It will watch all source and data files for changes, where the site will be rebuilt when such changes occur.
+> [!TIP]
+> Changes in [client JavaScript](src/scripts), [stylesheets](src/styles), [templates](src/templates), [resources](src/resources) and the [website data](data) will trigger the website to be rebuilt automatically.
+
+### Code Quality
+
+To perform code quality checks, powered by ESLint, run this command:
+
+``` bash
+npm run start
+```
+
+Please refer to the [eslint.config.js](eslint.config.js) file to familiar yourself with the rules.
 
 ## Deployment
 
-The site is hosted through GitHub Pages. The deployment is faciliated by the [Build & Deploy](.github/workflows/build-and-deploy.yml) GitHub Action Workflow, where it will perform a build and deploy the resulting artifact GitHub Pages.
+The web application is hosted through GitHub Pages. The deployment is faciliated by the [Build & Deploy](.github/workflows/build-and-deploy.yml) GitHub Action Workflow, where it will perform a build and deploy the resulting artifact to GitHub Pages.
 
 ### DNS
 
@@ -50,21 +59,11 @@ The `lsphillips.com` apex domain has `A` records pointing to the following GitHu
 
 It also has a `CNAME` record pointing the `www` subdomain to `lsphillips.github.io`.
 
-### Responses
-
-| Location                       | Status Code | Description                                |
-| ------------------------------ | :---------: | ------------------------------------------ |
-| `http://lsphillips.github.io`  | `301`       | Redirects to `https://www.lsphillips.com`. |
-| `https://lsphillips.github.io` | `301`       | Redirects to `https://www.lsphillips.com`. |
-| `http://lsphillips.com`        | `301`       | Redirects to `https://www.lsphillips.com`. |
-| `https://lsphillips.com`       | `301`       | Redirects to `https://www.lsphillips.com`. |
-| `http://www.lsphillips.com`    | `301`       | Redirects to `https://www.lsphillips.com`. |
-| `https://www.lsphillips.com`   | `200`       | Where we want to be.                       |
-
 ### Routes
 
 Some routes are seperate deployments; managed in different repositories. Those routes are:
 
-| Routes | Repository                       |
-| ------ | -------------------------------- |
-| `/cv`  | https://github.com/lsphillips/cv |
+| Routes            | Repository                                   |
+| ----------------- | -------------------------------------------- |
+| `/cv`             | https://github.com/lsphillips/cv             |
+| `/my-board-games` | https://github.com/lsphillips/my-board-games |

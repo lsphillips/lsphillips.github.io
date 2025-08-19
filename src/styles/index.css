@@ -1,0 +1,75 @@
+@import 'page.css';
+@import 'marquee.css';
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.profile
+{
+	/* Here to remind that it exists. */
+}
+
+.profile__avatar
+{
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: -50px auto 10px;
+	border-radius: 5px;
+}
+
+.profile__name
+{
+	margin: 0;
+	font-size: 130%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.profile__title
+{
+	text-align: center;
+	font-size: 105%;
+	font-weight: bold;
+	margin: 5px 0 0;
+}
+
+.profile__introduction
+{
+	margin: 20px 0;
+	line-height: 20px;
+}
+
+.profile__links
+{
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.profile__link
+{
+	display: block;
+	width: 80px;
+	text-align: center;
+	color: #961a39;
+	font-weight: bold;
+	text-decoration: none;
+
+	&:hover,
+	&:focus
+	{
+		text-decoration: underline;
+		outline: 0;
+	}
+}
+
+.profile__icon
+{
+	display: block;
+	margin: 0 auto 5px;
+	width: 24px;
+	height: 24px;
+	fill: currentColor;
+}
