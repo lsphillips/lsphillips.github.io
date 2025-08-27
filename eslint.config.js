@@ -14,6 +14,7 @@ export default [
 	]),
 	...andFromWritingStupidNodeApplications([
 		'build.js',
+		'src/*.js',
 		'src/templates/**/*.js'
 	])
 ];
