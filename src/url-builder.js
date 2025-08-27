@@ -1,3 +1,25 @@
+import {
+	posix
+} from 'node:path';
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function join (base, location, path)
+{
+	let parts = [location, path];
+
+	if (
+		!location.startsWith('/')
+	)
+	{
+		parts.unshift(base);
+	}
+
+	return posix.join(...parts);
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 export function createUrlBuilder ({
 	base,
 	images,
@@ -7,9 +29,9 @@ export function createUrlBuilder ({
 }, hash)
 {
 	return {
-		script     : path => base + [js,       path].join('/') + '?' + hash,
-		stylesheet : path => base + [css,      path].join('/') + '?' + hash,
-		favicon    : path => base + [favicons, path].join('/') + '?' + hash,
-		image      : path => base + [images,   path].join('/')
+		script     : path => join(base, js,       path) + '?' + hash,
+		stylesheet : path => join(base, css,      path) + '?' + hash,
+		image      : path => join(base, images,   path) + '?' + hash,
+		favicon    : path => join(base, favicons, path) + '?' + hash
 	};
 }
