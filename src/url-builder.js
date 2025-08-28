@@ -4,18 +4,18 @@ import {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function join (base, location, path)
+function join (base, ...paths)
 {
-	let parts = [location, path];
+	let url = posix.join(...paths);
 
 	if (
-		!location.startsWith('/')
+		!url.startsWith('/')
 	)
 	{
-		parts.unshift(base);
+		url = posix.join(base, url);
 	}
 
-	return posix.join(...parts);
+	return url;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
