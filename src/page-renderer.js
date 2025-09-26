@@ -5,7 +5,7 @@ import {
 	mkdir,
 	writeFile
 } from 'node:fs/promises';
-import nano from 'htmlnano';
+import * as nano from 'htmlnano';
 import {
 	createUrlBuilder
 } from './url-builder.js';
