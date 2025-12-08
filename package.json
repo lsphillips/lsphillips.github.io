@@ -13,7 +13,7 @@
 	{
         "js-yaml" : "4.1.0",
         "htmlnano" : "2.1.5",
-        "esbuild" : "0.25.10",
+        "esbuild" : "0.27.1",
         "eslint" : "9.36.0",
         "eslint-config-protect-me-from-my-stupidity" : "16.0.0"
 	},
