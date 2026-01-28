@@ -1,17 +1,12 @@
-name: Build & Deploy
+name: Build
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
   pull_request:
     branches:
       - main
     paths-ignore:
-      - '**.md'
-  workflow_dispatch:
+      - '**/*.md'
+  workflow_call:
 
 jobs:
 
@@ -44,29 +39,4 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: website/
-
-  deploy:
-
-    name: Deploy
-
-    needs:
-      - build
-
-    runs-on: ubuntu-latest
-
-    permissions:
-      pages: write
-      id-token: write
-
-    if: |
-      github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+        if: github.event_name != 'pull_request'
