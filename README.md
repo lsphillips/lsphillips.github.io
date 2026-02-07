@@ -1,6 +1,6 @@
 # The Personal Website for Luke S. Phillips
 
-[![Built & deployed using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/build-and-deploy.yml/badge.svg?branch=main)](https://github.com/lsphillips/lsphillips.github.io/actions)
+[![Built & deployed using GitHub Action](https://github.com/lsphillips/lsphillips.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/lsphillips/lsphillips.github.io/actions)
 
 The source code for the personal website of Luke S. Phillips.
 
