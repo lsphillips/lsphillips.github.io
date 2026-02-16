@@ -32,13 +32,15 @@ export async function readPages (datadir)
 		let name = basename(file, '.yaml');
 
 		// Special case.
-		if (name === 'home')
+		const isHome = name.toLowerCase() === 'home';
+
+		if (isHome)
 		{
 			name = 'index';
 		}
 
 		pages.push({
-			name, data : await readYamlFile(file)
+			name, isHome, data : await readYamlFile(file)
 		});
 	}
 

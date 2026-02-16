@@ -53,6 +53,15 @@ async function renderPage (name, data, urls)
 	return page.html;
 }
 
+async function renderLlmsTxt (data)
+{
+	const {
+		render
+	} = await import('./templates/llms.js');
+
+	return render(data);
+}
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 export async function renderPages (outdir, pages, {
@@ -67,10 +76,21 @@ export async function renderPages (outdir, pages, {
 
 	const urls = createUrlBuilder(paths, timestamp);
 
-	for (const { name, data } of pages)
+	for (const { name, isHome, data } of pages)
 	{
 		const html = await renderPage(name, data, urls);
 
-		await writeFile(join(outdir, `${name}.html`), html, 'utf8');
+		await writeFile(
+			join(outdir, `${name}.html`), html, 'utf8'
+		);
+
+		if (isHome)
+		{
+			const txt = await renderLlmsTxt(data);
+
+			await writeFile(
+				join(outdir, 'llms.txt'), txt, 'utf8'
+			);
+		}
 	}
 }
