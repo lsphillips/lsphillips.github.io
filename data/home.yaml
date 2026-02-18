@@ -12,7 +12,9 @@ introduction: |
 links:
   github: https://github.com/lsphillips
   linkedin: https://linkedin.com/in/lukesphillips
-  cv: https://www.lsphillips.com/cv
+  cv:
+    web: https://www.lsphillips.com/cv/
+    llm: https://www.lsphillips.com/cv/index.html.md
 seo:
   keywords:
     - Luke Phillips

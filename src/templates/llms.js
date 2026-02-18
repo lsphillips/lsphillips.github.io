@@ -13,5 +13,5 @@ export function render ({
 
 - [GitHub](${links.github})
 - [LinkedIn](${links.linkedin})
-- [CV](${links.cv})`;
+- [CV](${links.cv.llm})`;
 }
